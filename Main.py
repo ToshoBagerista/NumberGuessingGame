@@ -1,4 +1,4 @@
-import random
+import random, time
 
 if __name__ == '__main__':
     global chances
@@ -17,10 +17,12 @@ if __name__ == '__main__':
 
     num = random.randint(1, 100)
 
+    start = time.time()
     for i in range(chances):
         guess = int(input('Enter your guess: '))
         if guess == num:
-            print(f'Congratulations! You guessed the correct number in {i} attempts.')
+            end = time.time()
+            print(f'Congratulations! You guessed the correct number in {i} attempts. Your time is {(end - start):.0f} seconds.')
             break
         elif guess < num: print(f'Incorrect! The number is greater than {guess}.')
         elif guess > num: print(f'Incorrect! The number is less than {guess}.')
